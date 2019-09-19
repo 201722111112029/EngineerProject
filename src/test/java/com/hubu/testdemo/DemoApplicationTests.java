@@ -48,7 +48,7 @@ public class DemoApplicationTests {
 		//传入存入music表的对象
 		Music music = new Music();
 		music.setName("许一鸣 - 想你想疯了.mp3");
-		//传输文件的位置url
+		//本机传输文件的位置url
 		String url = "D:/CloudMusic/许一鸣 - 想你想疯了.mp3";
 		File musicContent = new File(url);
 		music.setContent(musicContent);//传入File类型的对象musicContent
@@ -77,7 +77,8 @@ public class DemoApplicationTests {
 	@Test
 	public void addVideo(){
 		//获取当前时间的字符串
-		String currTime = new SimpleDateFormat("yyyy-MM-dd kk:mm:ss").format(new Date().getTime());
+		String currTime = new SimpleDateFormat("yyyy-MM-dd kk:mm:ss")
+				.format(new Date().getTime());
 		//上传文件的url地址+文件名称+文件类型
 		String fileName = "D:/CloudMusic/MV/GALA - 追梦赤子心.mp4";
 		File file = new File(fileName);
