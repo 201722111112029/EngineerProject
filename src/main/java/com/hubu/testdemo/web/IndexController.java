@@ -5,13 +5,11 @@ import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.servlet.ModelAndView;
 
-<<<<<<< HEAD
+
 import com.hubu.testdemo.entity.Student;
 import com.hubu.testdemo.entity.User;
 import com.hubu.testdemo.service.StudentService;
-=======
-import com.hubu.testdemo.entity.User;
->>>>>>> b29f34711a9d9ab55a167b68ad0a4d0c7ef51339
+
 import com.hubu.testdemo.service.UserService;
 
 @Controller
@@ -21,12 +19,10 @@ public class IndexController {
     @Autowired
     private UserService userService;
 
-<<<<<<< HEAD
+
     @Autowired
     private StudentService studentService;
 
-=======
->>>>>>> b29f34711a9d9ab55a167b68ad0a4d0c7ef51339
     @RequestMapping("/")
     public ModelAndView index() {
         ModelAndView mav = new ModelAndView();
@@ -42,7 +38,7 @@ public class IndexController {
         mav.setViewName("user");
         return mav;
     }
-<<<<<<< HEAD
+
 
     @RequestMapping("/student")
     public ModelAndView student() {
@@ -52,6 +48,5 @@ public class IndexController {
         mav.setViewName("student");
         return mav;
     }
-=======
->>>>>>> b29f34711a9d9ab55a167b68ad0a4d0c7ef51339
+
 }
