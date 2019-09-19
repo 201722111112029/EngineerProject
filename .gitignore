@@ -1,4 +1,4 @@
-<<<<<<< HEAD
+
 .gradle
 /build/
 
@@ -13,7 +13,6 @@ gradle-app.setting
 
 # # Work around https://youtrack.jetbrains.com/issue/IDEA-116898
 # gradle/wrapper/gradle-wrapper.properties
-=======
 HELP.md
 .gradle
 build/
@@ -46,4 +45,5 @@ out/
 
 ### VS Code ###
 .vscode/
->>>>>>> first init project
+ first init project
+

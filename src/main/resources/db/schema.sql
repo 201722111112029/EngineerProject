@@ -1,4 +1,5 @@
 SET NAMES utf8;
+
 DROP TABLE IF EXISTS `user`;
 CREATE TABLE `user` (
   `id` bigint(20) NOT NULL AUTO_INCREMENT,
@@ -15,6 +16,7 @@ CREATE TABLE `user` (
 ALTER TABLE `user` ADD UNIQUE (`username`);
 ALTER TABLE `user` ADD UNIQUE (`email`);
 ALTER TABLE `user` ADD UNIQUE (`phone`);
+
 
 DROP TABLE IF EXISTS `music`;
 CREATE TABLE `music`  (
@@ -65,3 +67,4 @@ CREATE TABLE `pitcture`  (
    `upload_time` varchar(20) NOT NULL,
 PRIMARY KEY (`id`)
 );
+
