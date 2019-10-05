@@ -1,23 +1,20 @@
 package com.hubu.testdemo;
 
-import javax.transaction.Transactional;
-
 import com.hubu.testdemo.dao.MusicDao;
 import com.hubu.testdemo.dao.VideoDao;
 import com.hubu.testdemo.entity.Music;
 import com.hubu.testdemo.entity.Student;
 import com.hubu.testdemo.entity.Video;
 import com.hubu.testdemo.service.StudentService;
-
 import com.hubu.testdemo.utils.IOUtil;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
-
 import org.springframework.test.context.junit4.SpringRunner;
 
-import java.io.*;
+import javax.transaction.Transactional;
+import java.io.File;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 
@@ -47,7 +44,7 @@ public class DemoApplicationTests {
 				.format(new Date().getTime());
 		//传入存入music表的对象
 		Music music = new Music();
-		music.setName("许一鸣 - 想你想疯了.mp3");
+		music.setName("Vicetone,Popeska,Luciana - The New Kings.mp3");
 		//本机传输文件的位置url
 		String url = "D:/CloudMusic/许一鸣 - 想你想疯了.mp3";
 		File musicContent = new File(url);
