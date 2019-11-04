@@ -5,7 +5,6 @@ import lombok.Data;
 import javax.persistence.*;
 import java.io.File;
 
-
 @Entity
 @Table(name = "other_file")
 @Data
@@ -17,8 +16,8 @@ public class OtherFile {
     @Column(name = "name")
     private String name;
     @Lob
-    @Basic(fetch=FetchType.LAZY)
-    @Column(name = "content",columnDefinition="longblob", nullable=true)
+    @Basic(fetch = FetchType.LAZY)
+    @Column(name = "content", columnDefinition = "longblob", nullable = true)
     private File content;
     @Column(name = "size")
     private Long size;
