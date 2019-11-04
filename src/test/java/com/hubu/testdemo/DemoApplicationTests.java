@@ -47,9 +47,9 @@ public class DemoApplicationTests {
 				.format(new Date().getTime());
 		//传入存入music表的对象
 		Music music = new Music();
-		music.setName("许一鸣 - 想你想疯了.mp3");
+		music.setName("xxxx.mp3");
 		//本机传输文件的位置url
-		String url = "D:/CloudMusic/许一鸣 - 想你想疯了.mp3";
+		String url = "D:/CloudMusic/xxxx.mp3";
 		File musicContent = new File(url);
 		music.setContent(musicContent);//传入File类型的对象musicContent
 		music.setSize(musicContent.length());//musicContent.length()获取的是字节数,long类型

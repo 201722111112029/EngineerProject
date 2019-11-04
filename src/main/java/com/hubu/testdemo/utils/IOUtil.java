@@ -7,16 +7,18 @@ public class IOUtil {
     private FileInputStream is = null;
     private File file;
     private File destinationFile;
+
     public void saveResource() {
-        //创建一个1M大小的缓冲区
-        byte[] buffer = new byte[1024*1024];
+        // 创建一个1M大小的缓冲区
+        byte[] buffer = new byte[1024 * 1024];
         try {
             int len = -1;
             os = new FileOutputStream(destinationFile);
             is = new FileInputStream(file);
-            while((len=is.read(buffer))!= -1) {
-                os.write(buffer,0,buffer.length);
-            } os.flush();
+            while ((len = is.read(buffer)) != -1) {
+                os.write(buffer, 0, buffer.length);
+            }
+            os.flush();
         } catch (FileNotFoundException e) {
             e.printStackTrace();
         } catch (IOException e) {
@@ -24,12 +26,12 @@ public class IOUtil {
         } catch (Exception e) {
             e.printStackTrace();
         } finally {
-            releaseResource(os,is);
+            releaseResource(os, is);
         }
     }
 
     public static void releaseResource(Closeable... closeables) {
-        for (Closeable closeable:closeables) {
+        for (Closeable closeable : closeables) {
             if (closeable != null) {
                 try {
                     closeable.close();
@@ -40,7 +42,7 @@ public class IOUtil {
         }
     }
 
-    public IOUtil(File file,File destinationFile) {
+    public IOUtil(File file, File destinationFile) {
         this.file = file;
         this.destinationFile = destinationFile;
     }

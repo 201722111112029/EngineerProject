@@ -1,8 +1,6 @@
 package com.hubu.testdemo.entity;
 
 import lombok.Data;
-import net.bytebuddy.dynamic.loading.InjectionClassLoader;
-import org.springframework.boot.autoconfigure.web.ResourceProperties;
 
 import javax.persistence.*;
 import java.io.File;
