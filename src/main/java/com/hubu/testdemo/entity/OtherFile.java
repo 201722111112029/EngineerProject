@@ -4,7 +4,7 @@ import lombok.Data;
 
 import javax.persistence.*;
 import java.io.File;
-import java.sql.Blob;
+
 
 @Entity
 @Table(name = "other_file")
