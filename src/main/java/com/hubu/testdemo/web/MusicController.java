@@ -20,8 +20,8 @@ public class MusicController {
     // 根据音乐名称查找相关的音乐文件
     @RequestMapping(value = "/findMusicByName", method = RequestMethod.GET)
     public ModelAndView findMusicByName(Model model,@RequestParam("musicName") String musicName) {
-        Music music = musicService.findMusicByName(musicName);
-        model.addAttribute("music", music);
+        List<Music> musics = musicService.findMusicByName(musicName);
+        model.addAttribute("music", musics);
         return new ModelAndView("music");
     }
 

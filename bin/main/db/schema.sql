@@ -18,53 +18,53 @@ ALTER TABLE `user` ADD UNIQUE (`email`);
 ALTER TABLE `user` ADD UNIQUE (`phone`);
 
 
-DROP TABLE IF EXISTS `music`;
-CREATE TABLE `music`  (
-   `id` bigint(20) NOT NULL AUTO_INCREMENT,
-   `name` varchar(255) NOT NULL,
-   `content` longblob NOT NULL,
-   `size` bigint(20) NOT NULL,
-   `upload_time` varchar(255) NOT NULL,
-   PRIMARY KEY (`id`)
- );
+-- DROP TABLE IF EXISTS `music`;
+-- CREATE TABLE `music`  (
+--    `id` bigint(20) NOT NULL AUTO_INCREMENT,
+--    `name` varchar(255) NOT NULL,
+--    `content` longblob NOT NULL,
+--    `size` bigint(20) NOT NULL,
+--    `upload_time` varchar(255) NOT NULL,
+--    PRIMARY KEY (`id`)
+--  );
 
-DROP TABLE IF EXISTS `video`;
-CREATE TABLE `video`  (
-   `id` bigint(20) NOT NULL AUTO_INCREMENT,
-   `name` varchar(255) NOT NULL,
-   `content` longblob NOT NULL,
-   `size` bigint(20) NOT NULL,
-   `upload_time` varchar(255) NOT NULL,
-   PRIMARY KEY (`id`)
-);
+-- DROP TABLE IF EXISTS `video`;
+-- CREATE TABLE `video`  (
+--    `id` bigint(20) NOT NULL AUTO_INCREMENT,
+--    `name` varchar(255) NOT NULL,
+--    `content` longblob NOT NULL,
+--    `size` bigint(20) NOT NULL,
+--    `upload_time` varchar(255) NOT NULL,
+--    PRIMARY KEY (`id`)
+-- );
 
-DROP TABLE IF EXISTS `document`;
-CREATE TABLE `document`  (
-   `id` bigint(20) NOT NULL AUTO_INCREMENT,
-   `name` varchar(255) NOT NULL,
-   `content` longblob NOT NULL,
-   `size` bigint(20) NOT NULL,
-   `upload_time` varchar(255) NOT NULL,
-   PRIMARY KEY (`id`)
-);
+-- DROP TABLE IF EXISTS `document`;
+-- CREATE TABLE `document`  (
+--    `id` bigint(20) NOT NULL AUTO_INCREMENT,
+--    `name` varchar(255) NOT NULL,
+--    `content` longblob NOT NULL,
+--    `size` bigint(20) NOT NULL,
+--    `upload_time` varchar(255) NOT NULL,
+--    PRIMARY KEY (`id`)
+-- );
 
-DROP TABLE IF EXISTS `other_file`;
-CREATE TABLE `other_file`  (
-   `id` bigint(20) NOT NULL AUTO_INCREMENT,
-   `name` varchar(255) NOT NULL,
-   `content` longblob NOT NULL,
-   `size` bigint(20) NOT NULL,
-   `upload_time` varchar(255) NOT NULL,
-PRIMARY KEY (`id`)
-);
+-- DROP TABLE IF EXISTS `other_file`;
+-- CREATE TABLE `other_file`  (
+--    `id` bigint(20) NOT NULL AUTO_INCREMENT,
+--    `name` varchar(255) NOT NULL,
+--    `content` longblob NOT NULL,
+--    `size` bigint(20) NOT NULL,
+--    `upload_time` varchar(255) NOT NULL,
+-- PRIMARY KEY (`id`)
+-- );
 
-DROP TABLE IF EXISTS `pitcture`;
-CREATE TABLE `pitcture`  (
-   `id` bigint(20) NOT NULL AUTO_INCREMENT,
-   `name` varchar(255) NOT NULL,
-   `content` longblob NOT NULL,
-   `size` bigint(20) NOT NULL,
-   `upload_time` varchar(255) NOT NULL,
-PRIMARY KEY (`id`)
-);
+-- DROP TABLE IF EXISTS `pitcture`;
+-- CREATE TABLE `pitcture`  (
+--    `id` bigint(20) NOT NULL AUTO_INCREMENT,
+--    `name` varchar(255) NOT NULL,
+--    `content` longblob NOT NULL,
+--    `size` bigint(20) NOT NULL,
+--    `upload_time` varchar(255) NOT NULL,
+-- PRIMARY KEY (`id`)
+-- );
 

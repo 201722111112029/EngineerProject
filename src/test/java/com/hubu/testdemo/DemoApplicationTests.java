@@ -119,9 +119,9 @@ public class DemoApplicationTests {
 		String currTime = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss").format(new Date().getTime());
 		// 传入存入music表的对象
 		Music music = new Music();
-		music.setName("王玉萌 - 假装（Cover：陈雪凝）.mp3");
+		music.setName("凯玟桑,Ryu邪道长 - 面具（Cover 安七炫）.mp3");
 		// 本机传输文件的位置url
-		String url = "D:/CloudMusic/王玉萌 - 假装（Cover：陈雪凝）.mp3";
+		String url = "D:/CloudMusic/凯玟桑,Ryu邪道长 - 面具（Cover 安七炫）.mp3";
 		File musicContent = new File(url);
 		music.setContent(musicContent);// 传入File类型的对象musicContent
 		music.setSize(musicContent.length());// musicContent.length()获取的是字节数,long类型

@@ -13,7 +13,7 @@ public class MusicService {
     private MusicDao musicDao;
 
     // 根据音乐名称查找相关的音乐文件
-    public Music findMusicByName(String musicName) {
+    public List<Music> findMusicByName(String musicName) {
         return musicDao.findMusicByName(musicName);
     }
 

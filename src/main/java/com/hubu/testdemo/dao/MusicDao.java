@@ -11,15 +11,15 @@ import org.springframework.data.jpa.repository.Query;
 public interface MusicDao extends JpaRepository<Music, Long>, JpaSpecificationExecutor<Student> {
     // 使用sql查询，需要设置 nativeQuery = true
     // 根据音乐名称查找相关的音乐文件
-    @Query(value = "select * from music where name = ?1", nativeQuery = true)
-    Music findMusicByName(String musicName);
+    @Query(value = "select * from music where name like ?1", nativeQuery = true)
+    List<Music> findMusicByName(String musicName);
 
     // 根据音乐上传的日期先后排序显示数据
-    @Query(value = "select * from music where upload_time = ?1 order by upload_time asc", nativeQuery = true)
+    @Query(value = "select * from music where upload_time like CONCAT('%',?1,'%') order by upload_time asc", nativeQuery = true)
     List<Music> findMusicByUploadTime(String uploadTime);
 
     // 根据音乐的大小排序显示数据
-    @Query(value = "select * from music where size = ?1 order by size asc", nativeQuery = true)
+    @Query(value = "select * from music where size >= ?1 order by size asc", nativeQuery = true)
     List<Music> findMusicByMusicSize(long size);
 
     // 查询音乐文件的个数
