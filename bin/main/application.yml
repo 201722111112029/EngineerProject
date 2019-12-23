@@ -3,9 +3,11 @@ spring:
     data: classpath:db/data.sql
     schema: classpath:db/schema.sql
     url: jdbc:h2:tcp://localhost/D:\h2WorkSpace\h2test;MODE=MySql;DB_CLOSE_DELAY=-1
+    # jdbc:h2:D:\h2WorkSpace\h2test;MODE=MySql;DB_CLOSE_DELAY=-1  (use server mode to create database)
+    # jdbc:h2:tcp://localhost/D:\h2WorkSpace\h2test;MODE=MySql;DB_CLOSE_DELAY=-1 （use embedded mode to multiple connections）
 
     username: sa
-    password: 
+    password: sa
   jpa:
     database-platform: org.hibernate.dialect.H2Dialect
     hibernate:
