@@ -13,14 +13,14 @@ public class OtherFile {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "id")
     private Long id;
-    @Column(name = "name")
+
     private String name;
-    @Lob
-    @Basic(fetch = FetchType.LAZY)
-    @Column(name = "content", columnDefinition = "longblob", nullable = true)
-    private File content;
-    @Column(name = "size")
+
+    private String sourceUrl;
+
+    private String destinationUrl;
+
     private Long size;
-    @Column(name = "upload_time")
+
     private String uploadTime;
 }

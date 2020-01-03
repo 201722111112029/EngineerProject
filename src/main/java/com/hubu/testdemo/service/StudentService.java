@@ -2,8 +2,8 @@ package com.hubu.testdemo.service;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
-
 import com.hubu.testdemo.dao.StudentDao;
+
 import com.hubu.testdemo.entity.Student;
 
 import java.util.List;
@@ -33,7 +33,7 @@ public class StudentService {
     }
 
     public void updateStudent(){
-        studentDao.updateStudent("小小郑同学",18,"湖北省武汉市",2);
+        studentDao.updateStudent("郑同学",18,"湖北省武汉市",2);
     }
 
     public void deleteStudent(Integer id){

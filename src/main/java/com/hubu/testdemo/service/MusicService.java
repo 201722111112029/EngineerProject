@@ -1,10 +1,14 @@
 package com.hubu.testdemo.service;
 
+import java.io.File;
+import java.text.SimpleDateFormat;
+import java.util.Date;
 import java.util.List;
 
 import com.hubu.testdemo.dao.MusicDao;
 import com.hubu.testdemo.entity.Music;
 
+import com.hubu.testdemo.utils.IOUtil;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 @Service
@@ -35,17 +39,35 @@ public class MusicService {
     // 增加音乐文件
     public boolean addMusicFile(Music music) {
         boolean flag = true;
-        if (musicDao.findMusicByName(music.getName()) != null)
+        if (!musicDao.findMusicByName(music.getName()).isEmpty())
             flag = false;
-        else
+        else{
+            String destinationUrl = "D:\\yunDiskSpace\\music\\"+music.getName();
+            String currTime = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss").format(new Date().getTime());
+            File musicContent = new File(music.getSourceUrl());
+            music.setUploadTime(currTime);
+            music.setSize(musicContent.length());
+            music.setDestinationUrl(destinationUrl);
             musicDao.save(music);
+            IOUtil ioTool = new IOUtil(music.getSourceUrl(),destinationUrl);
+            ioTool.saveResource();
+        }
         return flag;
     }
 
     // 删除音乐文件
     public void deleteMusicFile(String musicName) {
-        if (musicDao.findMusicByName(musicName) != null) {
+        if (!musicDao.findMusicByName(musicName).isEmpty()) {
+            List<Music> musics = musicDao.findMusicByName(musicName);
+            for(Music music:musics){
+                new File(music.getDestinationUrl()).delete();
+            }
             musicDao.deleteMusicByName(musicName);
         }
+    }
+    //下载音乐文件
+    public void downloadMusicFile(String destinationUrl,String localPath){
+        IOUtil util = new IOUtil(destinationUrl,localPath);
+        util.saveResource();
     }
 }
