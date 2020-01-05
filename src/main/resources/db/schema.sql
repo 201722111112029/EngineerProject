@@ -62,8 +62,8 @@ ALTER TABLE `user` ADD UNIQUE (`phone`);
 -- PRIMARY KEY (`id`)
 -- );
 --
--- DROP TABLE IF EXISTS `pitcture`;
--- CREATE TABLE `pitcture`  (
+-- DROP TABLE IF EXISTS `picture`;
+-- CREATE TABLE `picture`  (
 --    `id` bigint(20) NOT NULL AUTO_INCREMENT,
 --    `name` varchar(255) NOT NULL,
 --    `source_url` varchar(255),

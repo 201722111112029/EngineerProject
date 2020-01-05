@@ -1,9 +1,11 @@
 package com.hubu.testdemo.web;
 
+import com.hubu.testdemo.dao.PictureDao;
 import com.hubu.testdemo.entity.Picture;
 import com.hubu.testdemo.service.PictureService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
+import org.springframework.web.servlet.ModelAndView;
 
 import javax.transaction.Transactional;
 import java.util.List;
@@ -12,6 +14,9 @@ import java.util.List;
 public class PictureController {
     @Autowired
     private PictureService pictureService;
+
+    @Autowired
+    private PictureDao pictureDao;
     //根据名称查找图片
     @GetMapping(value = "/findPictureByName")
     public List<Picture> findPictureByName(@RequestParam("pictureName")String pictureName) {
@@ -54,5 +59,13 @@ public class PictureController {
     @GetMapping("/downloadPicture")
     public void downloadOtherFile(@RequestParam("destinationUrl") String destinationUrl,@RequestParam("localPath") String localPath){
         pictureService.downloadPicture(destinationUrl,localPath);
+    }
+    @GetMapping("/findAllPicture")
+    public ModelAndView findAllPicuture(){
+        List<Picture> pictures = pictureDao.findAll();
+        ModelAndView mav = new ModelAndView();
+        mav.addObject("pictures",pictures);
+        mav.setViewName("tup");
+        return mav;
     }
 }

@@ -1,52 +1,47 @@
 package com.hubu.testdemo.web;
 
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.stereotype.Controller;
-import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.*;
+import com.hubu.testdemo.service.UserService;
 import org.springframework.web.servlet.ModelAndView;
 
-
-import com.hubu.testdemo.entity.Student;
-import com.hubu.testdemo.entity.User;
-import com.hubu.testdemo.service.StudentService;
-
-import com.hubu.testdemo.service.UserService;
-
-@Controller
-@RequestMapping("/")
+@RestController
 public class IndexController {
 
     @Autowired
     private UserService userService;
+    //进入应用首页登录界面
+    @GetMapping("/home")
+    public ModelAndView getTest(){
+        ModelAndView mav = new ModelAndView();
+        mav.setViewName("login");
+        return mav;
+    }
 
-
-    @Autowired
-    private StudentService studentService;
-
-    @RequestMapping("/")
-    public ModelAndView index() {
+    @PostMapping("/checkLegitimacy")
+    public ModelAndView login(@RequestParam("username") String username,@RequestParam("password") String password){
+       boolean flag = userService.checkLegitimacy(username,password);
+       ModelAndView mav = new ModelAndView();
+       mav.addObject("flag",flag);
+       mav.setViewName("index");
+       return mav;
+    }
+    @GetMapping("/toTup")
+    public ModelAndView page1(){
+    ModelAndView mav = new ModelAndView();
+    mav.setViewName("tup");
+    return mav;
+    }
+    @GetMapping("/toWend")
+    public ModelAndView page2(){
+        ModelAndView mav = new ModelAndView();
+        mav.setViewName("wend");
+        return mav;
+    }
+    @GetMapping("/toIndex")
+    public ModelAndView page3(){
         ModelAndView mav = new ModelAndView();
         mav.setViewName("index");
         return mav;
     }
-
-    @RequestMapping("/user")
-    public ModelAndView user() {
-        ModelAndView mav = new ModelAndView();
-        User user = userService.getUser(1l);
-        mav.addObject("user", user);
-        mav.setViewName("user");
-        return mav;
-    }
-
-
-    @RequestMapping("/student")
-    public ModelAndView student() {
-        ModelAndView mav = new ModelAndView();
-        Student student = studentService.getStudent(1);
-        mav.addObject("student", student);
-        mav.setViewName("student");
-        return mav;
-    }
-
 }

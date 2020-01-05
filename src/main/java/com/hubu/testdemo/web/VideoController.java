@@ -1,11 +1,9 @@
 package com.hubu.testdemo.web;
 
-
 import com.hubu.testdemo.entity.Video;
 import com.hubu.testdemo.service.VideoService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
-
 import javax.transaction.Transactional;
 import java.util.List;
 

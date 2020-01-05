@@ -1,11 +1,7 @@
 package com.hubu.testdemo.entity;
 
-
-
 import lombok.Data;
-
 import javax.persistence.*;
-
 /**
  * @Entity：申明实体类
  * @Table(name = "user") 对应数据库user表 实体类与数据库表的对应

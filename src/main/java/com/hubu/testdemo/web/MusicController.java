@@ -2,11 +2,12 @@ package com.hubu.testdemo.web;
 
 import java.util.List;
 
+import com.hubu.testdemo.dao.MusicDao;
 import com.hubu.testdemo.entity.Music;
 import com.hubu.testdemo.service.MusicService;
-
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
+import org.springframework.web.servlet.ModelAndView;
 
 import javax.transaction.Transactional;
 
@@ -14,6 +15,9 @@ import javax.transaction.Transactional;
 public class MusicController {
     @Autowired
     private MusicService musicService;
+
+    @Autowired
+    private MusicDao musicDao;
 
 //   根据音乐名称查找相关的音乐文件
 //    @RequestMapping(value = "/findMusicByName", method = RequestMethod.GET)
@@ -100,5 +104,13 @@ public class MusicController {
     @GetMapping("/downloadMusic")
     public void downloadMusic(@RequestParam("destinationUrl") String destinationUrl,@RequestParam("localPath") String localPath){
         musicService.downloadMusicFile(destinationUrl,localPath);
+    }
+    @GetMapping("/findAllMusic")
+    public ModelAndView findAllMusic(){
+        List<Music> musics = musicDao.findAll();
+        ModelAndView mav = new ModelAndView();
+        mav.addObject("musics",musics);
+        mav.setViewName("wend");
+        return mav;
     }
 }
