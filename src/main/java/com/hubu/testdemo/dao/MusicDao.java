@@ -2,6 +2,8 @@ package com.hubu.testdemo.dao;
 
 import java.util.List;
 
+import javax.transaction.Transactional;
+
 import com.hubu.testdemo.entity.Music;
 import com.hubu.testdemo.entity.Student;
 import org.springframework.data.jpa.repository.JpaRepository;
@@ -28,6 +30,7 @@ public interface MusicDao extends JpaRepository<Music, Long>, JpaSpecificationEx
     int findMusicAmount();
 
     //根据音乐的名称删除文件
+    @Transactional
     @Modifying
     @Query(value = "delete from music where name = ?1", nativeQuery = true)
     void deleteMusicByName(String musicName);

@@ -8,6 +8,8 @@ import org.springframework.data.jpa.repository.Query;
 
 import java.util.List;
 
+import javax.transaction.Transactional;
+
 public interface PictureDao extends JpaRepository<Picture, Long>, JpaSpecificationExecutor<Picture> {
     // 使用sql查询，需要设置 nativeQuery = true
     // 根据图片名称查找相关的图片文件
@@ -27,6 +29,7 @@ public interface PictureDao extends JpaRepository<Picture, Long>, JpaSpecificati
     int findPictureAmount();
 
     //根据图片的名称删除文件
+    @Transactional
     @Modifying
     @Query(value = "delete from picture where name = ?1", nativeQuery = true)
     void deletePictureByName(String pictureName);

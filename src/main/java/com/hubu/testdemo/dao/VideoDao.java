@@ -7,6 +7,8 @@ import org.springframework.data.jpa.repository.Query;
 
 import java.util.List;
 
+import javax.transaction.Transactional;
+
 public interface VideoDao extends JpaRepository<Video,Long>  {
     @Query(value = "select * from video where name like CONCAT('%',?1,'%')", nativeQuery = true)
     List<Video> findVideoByName(String videoName);
@@ -24,6 +26,7 @@ public interface VideoDao extends JpaRepository<Video,Long>  {
     int findVideoAmount();
 
     //根据视频的名称删除文件
+    @Transactional
     @Modifying
     @Query(value = "delete from video where name = ?1", nativeQuery = true)
     void deleteVideoByName(String videoName);

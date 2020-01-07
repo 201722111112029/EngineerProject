@@ -7,7 +7,7 @@ spring:
     # jdbc:h2:tcp://localhost/D:\h2WorkSpace\h2test;MODE=MySql;DB_CLOSE_DELAY=-1 （use embedded mode to multiple connections）
 
     username: sa
-    password: sa
+    password:
   jpa:
     database-platform: org.hibernate.dialect.H2Dialect
     hibernate:

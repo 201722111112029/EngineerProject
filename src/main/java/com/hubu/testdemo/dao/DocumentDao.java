@@ -8,6 +8,8 @@ import org.springframework.data.jpa.repository.Query;
 
 import java.util.List;
 
+import javax.transaction.Transactional;
+
 public interface DocumentDao extends JpaRepository<Document, Long>, JpaSpecificationExecutor<Document> {
 // 使用sql查询，需要设置 nativeQuery = true
 // 根据图片名称查找相关的图片文件
@@ -27,6 +29,7 @@ List<Document> findDocumentByName(String documentName);
     int findDocumentAmount();
 
 //根据图片的名称删除文件
+@Transactional
 @Modifying
 @Query(value = "delete from document where name = ?1", nativeQuery = true)
     void deleteDocumentByName(String documentName);

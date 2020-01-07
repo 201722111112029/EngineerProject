@@ -8,6 +8,8 @@ import org.springframework.data.jpa.repository.Query;
 
 import java.util.List;
 
+import javax.transaction.Transactional;
+
 public interface OtherFileDao extends JpaRepository<OtherFile, Long>, JpaSpecificationExecutor<OtherFile> {
     // 使用sql查询，需要设置 nativeQuery = true
     // 根据文件名称查找相关的音乐文件
@@ -27,6 +29,7 @@ public interface OtherFileDao extends JpaRepository<OtherFile, Long>, JpaSpecifi
     int findOtherFileAmount();
 
     //根据文件的名称删除文件
+    @Transactional
     @Modifying
     @Query(value = "delete from other_file where name = ?1", nativeQuery = true)
     void deleteOtherFileByName(String otherFileName);
